@@ -87,6 +87,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 vim.cmd [[filetype plugin indent on]]
 vim.cmd [[syntax enable]]
 vim.g.syntax = true
+vim.o.cc = '80'
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -1022,6 +1023,57 @@ require('lazy').setup({
       lazy = '💤 ',
     },
   },
+})
+
+local ls = require 'luasnip'
+local s = ls.snippet
+local sn = ls.snippet_node
+local isn = ls.indent_snippet_node
+local t = ls.text_node
+local i = ls.insert_node
+
+ls.add_snippets('tex', {
+  s({ trig = 'temp', dscr = 'Expands temp into latex template' }, {
+    t {
+      '\\documentclass[12pt]{article}',
+      '',
+      '\\usepackage{graphicx}',
+      '\\usepackage{amsmath,amssymb,amsfonts}',
+      '\\usepackage{amsthm}',
+      '\\usepackage[a4paper, margin=2.5cm]{geometry} ',
+      '',
+      '\\title{',
+    },
+
+    i(1),
+
+    t {
+      '}',
+      '\\author{',
+    },
+
+    i(2),
+
+    t {
+      '}',
+      '',
+      '\\begin{document}',
+      '\\noindent',
+      '\\maketitle',
+      '',
+      '\\section*{Introduction}',
+      '',
+      '',
+    },
+
+    i(3),
+
+    t {
+      '',
+      '',
+      '\\end{document}',
+    },
+  }),
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`

@@ -194,12 +194,13 @@ bar {
 	}
 
 	status_command i3blocks
-#	tray_output none
+	tray_output none
 	position top
 }
 
 bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'Hack Nerd Font Mono-13' -p 'dmenu'"
 bindsym $mod+b exec --no-startup-id "kitty ranger"
+bindsym $mod+shift+s exec --no-startup-id "flameshot gui"
 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%+-
