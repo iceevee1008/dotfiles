@@ -1074,6 +1074,12 @@ ls.add_snippets('tex', {
       '\\end{document}',
     },
   }),
+  s({ trig = 'tcolor', dscr = 'Create color box' }, {
+    t { '\\begin{tcolorbox}[colframe=white]', '' },
+
+    i(1),
+    t { '', '\\end{tcolorbox}' },
+  }),
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
