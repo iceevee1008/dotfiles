@@ -21,7 +21,7 @@ font pango:Hack Nerd Font Mono 13
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
+# exec --no-startup-id dex --autostart --environment i3
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -103,12 +103,12 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
+set $ws2 "2 Firefox"
+set $ws3 "3 Kew"
+set $ws4 "4 Libreoffice"
+set $ws5 "5 Sky"
+set $ws6 "6 OBS"
+set $ws7 "7 Zathura Xournalpp"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
@@ -186,7 +186,7 @@ bar {
 		statusline #F8F8F2
 		separator  #44475A
 
-		focused_workspace  #6272A4 #6272A4 #F8F8F2
+		focused_workspace  #6272A4 #6272a4 #F8F8F2
 		active_workspace   #282A36 #44475A #F8F8F2
 		inactive_workspace #282A36 #282A36 #BFBFBF
 		urgent_workspace   #FF5555 #FF5555 #F8F8F2
@@ -201,9 +201,18 @@ bar {
 
 bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'Hack Nerd Font Mono-13' -p 'dmenu'"
 bindsym $mod+b exec --no-startup-id "kitty ranger"
+bindsym $mod+x exec --no-startup-id "bash /home/icee/.scripts/open_sky.sh"
 bindsym $mod+shift+s exec --no-startup-id "flameshot gui"
 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%+-
 
+# Allocate windows to workspaces
+for_window [class="firefox"] move to workspace $ws2
+for_window [title="kew"] move to workspace $ws3
+for_window [class="libreoffice"] move to workspace $ws4
+for_window [class="steam_app_2325290"] move to workspace $ws5
+for_window [class="obs"] move to workspace $ws6
+for_window [class="Zathura"] move to workspace $ws7
+for_window [class="com.github.xournalpp.xournalpp"] move to workspace $ws7
 
