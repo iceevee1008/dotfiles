@@ -88,6 +88,7 @@ vim.cmd [[filetype plugin indent on]]
 vim.cmd [[syntax enable]]
 vim.g.syntax = true
 vim.o.cc = '80'
+vim.g.textwidth = 80
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
