@@ -7,3 +7,9 @@ Quick setup:
 `sudo apt install dunst fcitx5 fcitx5-pinyin i3 i3blocks kitty ranger`
 
 *I used latest version of neovim instead of the version in apt repo
+
+## Setup using stow
+
+Use `stow .` in `~/dotfiles/` to symlink all files in `~/dotfiles`
+
+Use `stow -D .` to clear all symbolic links
